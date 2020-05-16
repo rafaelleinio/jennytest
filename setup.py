@@ -1,7 +1,7 @@
 from setuptools import find_packages, setup
 
 __package_name__ = "jennytest"
-__version__ = "0.2.0"
+__version__ = "0.2.1"
 __repository_url__ = "https://github.com/rafaelleinio/jennytest"
 
 with open("requirements.txt") as f:

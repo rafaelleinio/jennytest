@@ -43,5 +43,5 @@ pipeline:
       password:
         from_secret: pypi_token
     when:
-      event: master
-      branch: tag
+      event: tag
+      branch: master
