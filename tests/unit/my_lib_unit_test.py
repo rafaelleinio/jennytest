@@ -1,4 +1,4 @@
-from jenny.my_lib import DummyClass
+from jennytest.my_lib import DummyClass
 
 
 class TestDummyClass:
