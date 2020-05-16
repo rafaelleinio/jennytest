@@ -1,0 +1,38 @@
+clone:
+  git:
+    image: plugins/git
+
+pipeline:
+  install: &install
+    image: rappdw/docker-java-python
+    commands:
+      - make drone-install
+
+  style-check:
+    <<: *install
+    commands:
+      - PYTHONPATH=./pip/deps make style-check
+    when:
+      event: push
+
+  check-flake8:
+    <<: *install
+    commands:
+      - PYTHONPATH=./pip/deps make check-flake8
+    when:
+      event: push
+
+  unit-tests:
+    <<: *install
+    image: python:3.7
+    commands:
+      - PYTHONPATH=./pip/deps make unit-tests
+    when:
+      event: push
+
+  integration-tests:
+    <<: *install
+    commands:
+      - PYTHONPATH=./pip/deps make integration-tests
+    when:
+      event: push
