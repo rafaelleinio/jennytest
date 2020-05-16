@@ -39,9 +39,10 @@ pipeline:
   pypi-release:
     image: plugins/pypi
     settings:
-      username: __token__
+      username:
+        from_secret: pypi_username
       password:
-        from_secret: pypi_token
+        from_secret: pypi_password
     when:
       event: tag
       branch: master
