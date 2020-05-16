@@ -25,7 +25,7 @@ drone-install:
 
 .PHONY: tests
 tests:
-	@python -m pytest -n=auto --cov-config=.coveragerc --cov=jenny --cov-report term --cov-report html:htmlcov --cov-report xml:coverage.xml tests
+	@python -m pytest -n=auto --cov-config=.coveragerc --cov=jennytest --cov-report term --cov-report html:htmlcov --cov-report xml:coverage.xml tests
 	@python -m coverage xml -i
 
 .PHONY: unit-tests
@@ -34,7 +34,7 @@ unit-tests:
 	@echo "Unit Tests"
 	@echo "=========="
 	@echo ""
-	@python -m pytest -n auto --cov-config=.coveragerc --cov-report term --cov-report html:unit-tests-cov --cov=jenny --cov-fail-under=75 tests/unit
+	@python -m pytest -n auto --cov-config=.coveragerc --cov-report term --cov-report html:unit-tests-cov --cov=jennytest --cov-fail-under=75 tests/unit
 
 .PHONY: integration-tests
 integration-tests:
@@ -42,7 +42,7 @@ integration-tests:
 	@echo "Integration Tests"
 	@echo "================="
 	@echo ""
-	@python -m pytest -n auto --cov-config=.coveragerc --cov-report term --cov-report xml:integration-tests-cov.xml --cov=jenny --cov-fail-under=60 tests/integration
+	@python -m pytest -n auto --cov-config=.coveragerc --cov-report term --cov-report xml:integration-tests-cov.xml --cov=jennytest --cov-fail-under=60 tests/integration
 
 .PHONY: style-check
 style-check:
@@ -59,7 +59,7 @@ check-flake8:
 	@echo "Flake 8"
 	@echo "======="
 	@echo ""
-	@python -m flake8 jenny/ && echo "jenny module success"
+	@python -m flake8 jennytest/ && echo "jennytest module success"
 	@python -m flake8 tests/ && echo "tests module success"
 	@echo ""
 
