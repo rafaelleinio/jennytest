@@ -101,3 +101,7 @@ repository-url:
 .PHONY: package
 package:
 	@PYTHONPATH=. python -m setup sdist bdist_wheel
+
+.PHONY: upload-pypi
+package:
+	@PYTHONPATH=. python -m twine upload dist/*
