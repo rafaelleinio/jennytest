@@ -24,7 +24,6 @@ pipeline:
 
   unit-tests:
     <<: *install
-    image: python:3.7
     commands:
       - PYTHONPATH=./pip/deps make unit-tests
     when:
@@ -36,3 +35,13 @@ pipeline:
       - PYTHONPATH=./pip/deps make integration-tests
     when:
       event: push
+
+  pypi-release:
+  image: plugins/pypi
+  settings:
+    username: __token__
+    password:
+      from_secret: pypi_token
+  when:
+    event: master
+    branch: tag
