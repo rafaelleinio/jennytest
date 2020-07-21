@@ -26,11 +26,11 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: v${{ env.version }}
-        release_name: Release v${{ env.version }}
+        tag_name: ${{ env.version }}
+        release_name: Release ${{ env.version }}
 
     - name: Publish release to pypi.org
       env:
         PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
         PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-      run: PYTHONPATH=./pip/deps twine upload -u $PYPI_USERNAME -p $PYPI_PASSWORD --verbose dist/*
+      run:  PYTHONPATH=./pip/deps python -m twine upload -u $PYPI_USERNAME -p $PYPI_PASSWORD --verbose dist/*

@@ -7,8 +7,14 @@ __repository_url__ = "https://github.com/rafaelleinio/jennytest"
 with open("requirements.txt") as f:
     requirements = f.read().splitlines()
 
+with open("README.md") as f:
+    long_description = f.read()
+
 setup(
     name=__package_name__,
+    description="Data quality and profiling tool powered by Apache Spark.",
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     version=__version__,
     url=__repository_url__,
     packages=find_packages(
@@ -16,7 +22,6 @@ setup(
     ),
     license="MIT",
     author="Rafael Leinio",
-    description="Data quality and profiling tool powered by Apache Spark.",
     keywords="apache-spark pyspark data quality profiling",
     install_requires=requirements,
 )
