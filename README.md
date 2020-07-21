@@ -11,7 +11,7 @@ def foo(arg):
     return my_lib.awesome_function(arg)  # change me
 ```
 
-This library supports Python version 3.7+
+This library supports Python version 3.7+.
 
 ## Installing
 
