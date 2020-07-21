@@ -20,9 +20,3 @@ jobs:
 
     - name: Tests
       run: PYTHONPATH=./pip/deps make tests
-
-    - name: Build package
-      run: make package
-
-    - name: twine
-      run: PYTHONPATH=./pip/deps python -m twine check dist/*
