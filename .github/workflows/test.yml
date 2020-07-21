@@ -25,4 +25,4 @@ jobs:
       run: make package
 
     - name: twine
-      run: python -m twine check dist/*
+      run: PYTHONPATH=./pip/deps python -m twine check dist/*
